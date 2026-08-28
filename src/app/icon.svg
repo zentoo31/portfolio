@@ -1,0 +1,23 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+>
+  <rect
+    width="64"
+    height="64"
+    rx="14"
+    fill="#0F1015"
+  />
+
+  <text
+    x="32"
+    y="39"
+    text-anchor="middle"
+    font-family="Geist, sans-serif"
+    font-size="24"
+    font-weight="700"
+    fill="#00FF66"
+  >
+    D.A.
+  </text>
+</svg>
