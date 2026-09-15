@@ -13,7 +13,7 @@ export default function TopBar() {
       </div>
 
       <div className="text-sm text-text-description sm:text-base">
-        IP: 192.168.18.12
+        IPv4 Address. . . . . . . . . . . : 192.168.18.12 
       </div>
 
       <div className="flex flex-row items-center gap-2 text-sm text-text-description sm:text-base">
@@ -30,7 +30,7 @@ export default function TopBar() {
           }}
         />
         <span className="whitespace-nowrap">
-          SYS_ONLINE // <Clock />
+          SYS_ONLINE || <Clock />
         </span>
       </div>
     </div>
