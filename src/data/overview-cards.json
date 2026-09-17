@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Tecnologías",
+    "value": "08+",
+    "accent": "STACK",
+    "icon": "tecnologia",
+    "description": "Desarrollo con Next.js, React, TypeScript, Node.js y herramientas modernas para crear experiencias rápidas y escalables."
+  },
+  {
+    "title": "Experiencia",
+    "value": "1A",
+    "accent": "EXP",
+    "icon": "experiencia",
+    "description": "Más de un año construyendo soluciones para infraestructura, automatización y proyectos web orientados a resultados."
+  },
+  {
+    "title": "Enfoque",
+    "value": "100%",
+    "accent": "MINDSET",
+    "icon": "focus",
+    "description": "Me interesa crear software claro, mantenible y útil, con atención en la experiencia de usuario y la calidad técnica."
+  }
+]

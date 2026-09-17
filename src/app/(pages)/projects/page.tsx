@@ -2,36 +2,7 @@
 import { motion } from "motion/react";
 
 import { ProjectCard } from "@/components/ui/project-card";
-
-const projects = [
-  {
-    title: "Portfolio personal",
-    description:
-      "Sitio web personal para mostrar perfil profesional, stack tecnológico y experiencia en desarrollo.",
-    image: "/profile-placeholder.svg",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    projectUrl: "https://example.com",
-    repositoryUrl: "https://github.com/zentoo31/portfolio",
-  },
-  {
-    title: "Panel de monitoreo",
-    description:
-      "Dashboard para visualizar métricas clave, estado de servicios y actividad en tiempo real.",
-    image: "/profile-placeholder.svg",
-    technologies: ["React", "Node.js", "PostgreSQL", "Chart.js"],
-    projectUrl: "https://example.com",
-    repositoryUrl: "https://github.com/zentoo31",
-  },
-  {
-    title: "Sistema de automatización",
-    description:
-      "Aplicación orientada a la gestión y ejecución de tareas automáticas para procesos internos.",
-    image: "/profile-placeholder.svg",
-    technologies: ["TypeScript", "Node.js", "Docker", "REST API"],
-    projectUrl: "https://example.com",
-    repositoryUrl: "https://github.com/zentoo31",
-  },
-];
+import projects from "@/data/projects.json";
 
 export default function ProjectsPage() {
   return (
@@ -41,7 +12,7 @@ export default function ProjectsPage() {
       transition={{ duration: 0.5 }}
       className="flex flex-col gap-4 space-y-4 font-mono"
     >
-      <h1 className="text-3xl text-text-def">Projects</h1>
+      <h1 className="text-3xl text-text-def">Proyectos</h1>
       <p className="max-w-2xl text-text-description">
         Una selección de proyectos con su descripción, tecnologías utilizadas y
         enlaces para verlos.

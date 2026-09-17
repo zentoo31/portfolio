@@ -3,36 +3,49 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { Award, BadgeCheck, ShieldCheck } from "lucide-react";
 
 import tecnologiaGif from "@/assets/tecnologia.gif";
 import experienciaGif from "@/assets/mc_experiencie.gif";
+import cisco_logo from "@/assets/cisco_logo.webp";
 import focusGif from "@/assets/focus.gif";
 import { OverviewCard } from "@/components/ui/overview-card";
+import overviewCards from "@/data/overview-cards.json";
 
-const overviewCards = [
+const iconByKey: Record<string, typeof tecnologiaGif> = {
+  tecnologia: tecnologiaGif,
+  experiencia: experienciaGif,
+  focus: focusGif,
+};
+
+const certificates = [
   {
-    title: "Tecnologías",
-    value: "08+",
-    accent: "STACK",
-    icon: tecnologiaGif,
-    description:
-      "Desarrollo con Next.js, React, TypeScript, Node.js y herramientas modernas para crear experiencias rápidas y escalables.",
+    name: "CCNA",
+    issuer: "Cisco",
+    period: "2026",
+    badge: "Networking",
+    color: "border-text-green/60 bg-[#0f1a13]",
   },
   {
-    title: "Experiencia",
-    value: "1A",
-    accent: "EXP",
-    icon: experienciaGif,
-    description:
-      "Más de un año construyendo soluciones para infraestructura, automatización y proyectos web orientados a resultados.",
+    name: "CyberOps Associate",
+    issuer: "Cisco",
+    period: "2026",
+    badge: "Security",
+    color: "border-text-green/60 bg-[#0f1a13]",
   },
   {
-    title: "Enfoque",
-    value: "100%",
-    accent: "MINDSET",
-    icon: focusGif,
-    description:
-      "Me interesa crear software claro, mantenible y útil, con atención en la experiencia de usuario y la calidad técnica.",
+    name: "Linux Essentials",
+    issuer: "Cisco / Linux",
+    period: "2025",
+    badge: "Systems",
+    color: "border-text-green/60 bg-[#0f1a13]",
+  },
+  {
+    name: "Networking Fundamentals",
+    issuer: "Cisco / IT",
+    period: "2025",
+    badge: "Infra",
+    color: "border-text-green/60 bg-[#0f1a13]",
   },
 ];
 
@@ -149,11 +162,111 @@ export default function OverviewPage() {
             title={card.title}
             value={card.value}
             accent={card.accent}
-            icon={card.icon}
+            icon={iconByKey[card.icon]}
             description={card.description}
             delay={index * 0.12}
           />
         ))}
+      </div>
+
+      <div className="grid gap-6 pt-2 lg:grid-cols-[1.1fr_0.9fr]">
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.2 }}
+          className="border border-[#1F2128] bg-bg-2 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+        >
+          <div className="mb-4 flex items-center gap-3">
+            <span className="border-l-4 border-text-green pl-2 text-text-green">
+              Estudios
+            </span>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                period: "2022 — Actualidad",
+                title: "Ingeniería de Sistemas",
+                description:
+                  "Formación sólida en infraestructura, redes, sistemas operativos y desarrollo de soluciones tecnológicas.",
+              }
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="relative rounded-xl border border-[#1F2128] bg-[#11141a] p-4"
+              >
+                <div className="absolute left-0 top-0 h-full w-[2px] bg-text-green" />
+                <div className="ml-3 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-base font-semibold text-text-def">
+                      {item.title}
+                    </h3>
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-text-description">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-text-description">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.3 }}
+          className="border border-[#1F2128] bg-bg-2 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+        >
+          <div className="mb-4 flex items-center gap-3">
+            <span className="border-l-4 border-text-green pl-2 text-text-green">
+              Certificados
+            </span>
+          </div>
+
+          <div className="grid gap-3">
+            {certificates.map((cert) => (
+              <motion.article
+                key={cert.name}
+                whileHover={{ y: -2 }}
+                className={`border p-3 ${cert.color}`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-lg border border-[#1F2128] bg-[#0d1117] p-2 text-text-green">
+                      <Image src={cisco_logo} alt="Cisco Logo" width={24} height={24} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.18em] text-text-description">
+                        {cert.issuer}
+                      </p>
+                      <h3 className="mt-1 text-base font-semibold text-text-def">
+                        {cert.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1 rounded-full border border-[#1F2128] bg-[#0d1117] px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-text-green">
+                    <BadgeCheck className="h-3 w-3" />
+                    {cert.period}
+                  </div>
+                </div>
+
+                <div className="mt-3 flex items-center justify-between gap-3">
+                  <span className="rounded-full border border-[#1F2128] bg-[#11141a] px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-text-description">
+                    {cert.badge}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-xs text-text-description">
+                    <ShieldCheck className="h-3.5 w-3.5 text-text-green" />
+                    Verificado
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </motion.section>
       </div>
     </motion.div>
   );

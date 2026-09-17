@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { href: "/overview", label: "Overview", icon: FileIcon },
-  { href: "/projects", label: "Projects", icon: FolderIcon },
-  { href: "/contact", label: "Contact", icon: MailIcon },
+  { href: "/overview", label: "Resumen", icon: FileIcon },
+  { href: "/projects", label: "Proyectos", icon: FolderIcon },
+  { href: "/contact", label: "Contacto", icon: MailIcon },
 ];
 
 const socialLinks = [
@@ -33,7 +33,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="shrink-0 border-b border-[#1F2128] bg-bg-2 p-4 font-mono lg:flex lg:w-72 lg:flex-col lg:border-r lg:border-b-0">
+    <aside className="shrink-0 self-start border-b border-[#1F2128] bg-bg-2 p-4 font-mono lg:sticky lg:top-[73px] lg:z-20 lg:flex lg:h-[calc(100vh-73px)] lg:w-72 lg:flex-col lg:border-r lg:border-b-0">
       <div>
         <span className="text-xs tracking-[0.2em] text-text-description">
           WORKSPACE

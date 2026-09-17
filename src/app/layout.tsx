@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Diego Pineda - Portfolio",
   description: "Personal Portfolio",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.ico",
   },
 };
 
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SpaceBackground />
         <main className="relative z-10 flex min-h-screen flex-col bg-transparent text-text-def">
           <TopBar />
-          <div className="flex flex-1 flex-col lg:flex-row">
+          <div className="flex flex-1 flex-col lg:flex-row lg:items-start">
             <Sidebar />
             <section className="relative z-10 flex-1 bg-transparent p-4 sm:p-6 lg:p-8">
               {children}

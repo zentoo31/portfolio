@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Portfolio personal",
+    "description": "Sitio web personal para mostrar perfil profesional, stack tecnológico y experiencia en desarrollo.",
+    "image": "/screen/portfolio_screen.png",
+    "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "projectUrl": "https://example.com",
+    "repositoryUrl": "https://github.com/zentoo31/portfolio"
+  },
+  {
+    "title": "Starter",
+    "description": "Starter es una aplicación de escritorio desarrollada con Electron, React y TypeScript cuyo objetivo es automatizar las tareas más comunes después de instalar Windows.",
+    "image": "/screen/starter_screen.png",
+    "technologies": ["React", "Electron", "TypeScript", "Vite"],
+    "projectUrl": "https://github.com/zentoo31/starter/releases/tag/main",
+    "repositoryUrl": "https://github.com/zentoo31/starter"
+  },
+  {
+    "title": "db-pos-creator",
+    "description": "Programa CLI que scrapea la web de Plaza Vea (https://www.plazavea.com.pe/) para obtener productos de abarrotes y permite crear una base de datos con esos productos según la base de datos elegida.",
+    "image": "/profile-placeholder.svg",
+    "technologies": ["Python", "BeautifulSoup", "MongoDB", "PostgreSQL", "MySQL", "SQL Server"],
+    "projectUrl": "https://github.com/zentoo31/db-pos-creator",
+    "repositoryUrl": "https://github.com/zentoo31/db-pos-creator"
+  }
+]

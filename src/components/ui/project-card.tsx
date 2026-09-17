@@ -34,20 +34,20 @@ export function ProjectCard({
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: "easeOut", delay }}
       className={cn(
-        "group relative overflow-hidden border border-[#1F2128] bg-bg-2/80 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]",
+        "group relative overflow-visible border border-[#1F2128] bg-bg-2/80 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]",
         className,
       )}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,255,102,0.16),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative flex h-full flex-col gap-4">
-        <div className="overflow-hidden border border-[#1F2128] bg-[#11141a]">
+        <div className="relative z-10 border border-[#1F2128] bg-[#11141a]">
           <Image
             src={image}
             alt={`Vista previa de ${title}`}
             width={1200}
             height={675}
-            className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="relative z-20 h-44 w-full origin-center object-cover transition-transform duration-300 group-hover:scale-[1.08]"
           />
         </div>
 
