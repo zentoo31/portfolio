@@ -24,7 +24,6 @@ const certificates = [
     issuer: "Cisco",
     period: "2026",
     badge: "Networking",
-    color: "border-text-green/60 bg-[#0f1a13]",
   },
   {
     name: "CyberOps Associate",
@@ -231,7 +230,7 @@ export default function OverviewPage() {
               <motion.article
                 key={cert.name}
                 whileHover={{ y: -2 }}
-                className={`border p-3 ${cert.color}`}
+                className=" p-3"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
@@ -255,7 +254,7 @@ export default function OverviewPage() {
                 </div>
 
                 <div className="mt-3 flex items-center justify-between gap-3">
-                  <span className="rounded-full border border-[#1F2128] bg-[#11141a] px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-text-description">
+                  <span className="border border-[#1F2128] bg-[#11141a] px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-text-description">
                     {cert.badge}
                   </span>
                   <span className="inline-flex items-center gap-1 text-xs text-text-description">

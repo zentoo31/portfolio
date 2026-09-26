@@ -4,7 +4,7 @@
     "description": "Sitio web personal para mostrar perfil profesional, stack tecnológico y experiencia en desarrollo.",
     "image": "/screen/portfolio_screen.png",
     "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    "projectUrl": "https://example.com",
+    "projectUrl": "https://portfolio-4x5jqskl3-zentoo31s-projects.vercel.app/",
     "repositoryUrl": "https://github.com/zentoo31/portfolio"
   },
   {
@@ -22,5 +22,13 @@
     "technologies": ["Python", "BeautifulSoup", "MongoDB", "PostgreSQL", "MySQL", "SQL Server"],
     "projectUrl": "https://github.com/zentoo31/db-pos-creator",
     "repositoryUrl": "https://github.com/zentoo31/db-pos-creator"
+  },
+  {
+    "title": "RouteIQ",
+    "description": "RouteIQ es una aplicación móvil que proporciona a los usuarios información y ubicaciones de paradas de autobús y rutas necesarias para llegar a un destino específico. Además, incluye una función de pago para los autobuses abordados por los usuarios, todo ello mejorado por un chatbot GEMINI AI que facilita la selección de puntos de partida y destino.",
+    "image": "/screen/routeiq_screen.png",
+    "technologies":["Android Studio", "Java", "Firebase", "GEMINI AI"],
+    "projectUrl": "https://github.com/zentoo31/RouteIQ",
+    "repositoryUrl": "https://github.com/zentoo31/RouteIQ"
   }
 ]
