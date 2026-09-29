@@ -3,15 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  FileIcon,
   FolderIcon,
   GitBranchIcon,
   BriefcaseBusinessIcon,
   MailIcon,
+  BookOpenCheckIcon
 } from "lucide-react";
 
 const navItems = [
-  { href: "/overview", label: "Resumen", icon: FileIcon },
+  { href: "/overview", label: "Resumen", icon: BookOpenCheckIcon },
   { href: "/projects", label: "Proyectos", icon: FolderIcon },
   { href: "/contact", label: "Contacto", icon: MailIcon },
 ];

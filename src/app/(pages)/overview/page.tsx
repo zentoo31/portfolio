@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Award, BadgeCheck, ShieldCheck } from "lucide-react";
+import { BadgeCheck, ShieldCheck } from "lucide-react";
 
 import tecnologiaGif from "@/assets/tecnologia.gif";
 import experienciaGif from "@/assets/mc_experiencie.gif";
