@@ -16,10 +16,38 @@
     --color-text-description: #9CA3AF;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body{
     font-family: var(--font-sans);
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .system-text {
   font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-text-green);
+  outline-offset: 2px;
+}
+
+@media (max-width: 639px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

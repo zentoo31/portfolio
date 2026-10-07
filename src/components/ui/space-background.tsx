@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const STAR_COUNT = 100;
 
@@ -18,8 +18,13 @@ const stars = Array.from({ length: STAR_COUNT }, (_, index) => ({
 }));
 
 export default function SpaceBackground() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-bg-def">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-bg-def"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,255,102,0.12),transparent_30%),radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.12),transparent_25%),radial-gradient(circle_at_bottom,_rgba(59,130,246,0.08),transparent_35%)]" />
 
       {stars.map((star) => (
@@ -34,18 +39,26 @@ export default function SpaceBackground() {
             opacity: star.opacity,
             filter: `blur(${star.blur}px)`,
           }}
-          animate={{
-            x: [0, star.driftX, 0],
-            y: [0, star.driftY, 0],
-            opacity: [star.opacity, Math.min(star.opacity + 0.5, 1), star.opacity],
-            scale: [1, 1.7, 1],
-          }}
-          transition={{
-            duration: star.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: star.delay,
-          }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  x: [0, star.driftX, 0],
+                  y: [0, star.driftY, 0],
+                  opacity: [star.opacity, Math.min(star.opacity + 0.5, 1), star.opacity],
+                  scale: [1, 1.7, 1],
+                }
+          }
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: star.duration,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                  delay: star.delay,
+                }
+          }
         />
       ))}
     </div>

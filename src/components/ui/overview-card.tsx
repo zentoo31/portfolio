@@ -1,7 +1,7 @@
 "use client"
 
 import Image, { type StaticImageData } from "next/image";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -24,44 +24,63 @@ export function OverviewCard({
   delay = 0,
   className,
 }: OverviewCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 28 }}
+      tabIndex={0}
+      role="region"
+      aria-label={`${title} - ${accent}${value ? `: ${value}` : ""}`}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.45, ease: "easeOut", delay }}
+      whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { duration: 0.45, ease: "easeOut", delay }
+      }
       className={cn(
-        "group relative overflow-hidden border border-[#1F2128] bg-bg-2/80 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]",
+        "group relative min-w-0 overflow-hidden border border-bg-3 bg-bg-2/80 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-colors duration-200 sm:p-5",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-green focus-visible:ring-offset-2 focus-visible:ring-offset-bg-def focus-visible:border-text-green/80",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,255,102,0.16),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,255,102,0.16),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
 
-      <div className="relative flex h-full flex-col gap-3">
+      <div className="relative flex h-full min-w-0 flex-col gap-3">
         <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-2">
             {icon ? (
-              <div className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-md border border-[#1F2128] bg-[#11141a]">
+              <div
+                aria-hidden="true"
+                className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-md border border-bg-3 bg-bg-def"
+              >
                 <Image
                   src={icon}
-                  alt={`${accent} icon`}
+                  alt=""
                   width={18}
                   height={18}
                   className="h-full w-full object-cover"
                 />
               </div>
             ) : null}
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-text-green">
+            <span className="truncate text-xs font-semibold uppercase tracking-[0.18em] text-text-green">
               {accent}
             </span>
           </div>
           {value ? (
-            <span className="text-lg font-bold text-text-def">{value}</span>
+            <span className="shrink-0 text-base font-bold text-text-def sm:text-lg">
+              {value}
+            </span>
           ) : null}
         </div>
 
-        <h2 className="text-lg font-semibold text-text-def">{title}</h2>
-        <p className="text-sm leading-relaxed text-text-description">{description}</p>
+        <h3 className="text-base font-semibold text-text-def sm:text-lg">
+          {title}
+        </h3>
+        <p className="text-sm leading-relaxed break-words text-text-description">
+          {description}
+        </p>
       </div>
     </motion.article>
   );
